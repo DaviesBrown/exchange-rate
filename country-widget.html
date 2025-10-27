@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Widget - Nigeria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .country-widget {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .country-widget:hover {
+            transform: translateY(-5px);
+        }
+
+        .widget-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .widget-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+        }
+
+        .flag-container {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flag {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
+        }
+
+        .country-name {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .country-capital {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .widget-body {
+            padding: 25px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .info-label {
+            font-size: 11px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 16px;
+            color: #212529;
+            font-weight: bold;
+        }
+
+        .gdp-section {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .gdp-label {
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .gdp-value {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .widget-footer {
+            padding: 15px 25px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .badge {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timestamp {
+            font-size: 11px;
+            color: #6c757d;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .country-widget {
+                max-width: 100%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="country-widget">
+        <div class="widget-header">
+            <div class="flag-container">
+                <img src="https://flagcdn.com/ng.svg" alt="Nigeria Flag" class="flag">
+            </div>
+            <h2 class="country-name">Nigeria</h2>
+            <p class="country-capital">📍 Abuja</p>
+        </div>
+
+        <div class="widget-body">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Region</div>
+                    <div class="info-value">🌍 Africa</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Population</div>
+                    <div class="info-value">👥 206.1M</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Currency</div>
+                    <div class="info-value">💰 NGN</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Exchange Rate</div>
+                    <div class="info-value">$1 = ₦1,460.87</div>
+                </div>
+            </div>
+
+            <div class="gdp-section">
+                <div class="gdp-label">Estimated GDP</div>
+                <div class="gdp-value">$197.5M</div>
+            </div>
+        </div>
+
+        <div class="widget-footer">
+            <span class="badge">ID: 161</span>
+            <span class="timestamp">⏱️ Updated: Oct 27, 2025</span>
+        </div>
+    </div>
+
+    <script>
+        // Get country name from URL parameter (e.g., ?country=Nigeria)
+        const urlParams = new URLSearchParams(window.location.search);
+        const countryName = urlParams.get('country') || 'Nigeria'; // Default to Nigeria if no param
+        const apiUrl = urlParams.get('api') || 'http://localhost:3000'; // Allow custom API URL
+
+        // Update page title
+        document.title = `Country Widget - ${countryName}`;
+
+        // Function to format numbers
+        function formatNumber(num) {
+            if (num >= 1000000000) {
+                return (num / 1000000000).toFixed(1) + 'B';
+            }
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toFixed(0);
+        }
+
+        // Function to get currency symbol
+        function getCurrencySymbol(code) {
+            const symbols = {
+                'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥',
+                'NGN': '₦', 'GHS': '₵', 'ZAR': 'R', 'KES': 'KSh',
+                'EGP': 'E£', 'MAD': 'DH'
+            };
+            return symbols[code] || code;
+        }
+
+        // Show loading state
+        function showLoading() {
+            document.querySelector('.country-name').textContent = 'Loading...';
+            document.querySelector('.country-capital').textContent = '⏳ Fetching data...';
+        }
+
+        // Show error state
+        function showError(message) {
+            document.querySelector('.widget-header').style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+            document.querySelector('.country-name').textContent = 'Error';
+            document.querySelector('.country-capital').textContent = '❌ ' + message;
+        }
+
+        // Populate the widget with country data
+        function populateWidget(data) {
+            document.querySelector('.flag').src = data.flag_url;
+            document.querySelector('.flag').alt = data.name + ' Flag';
+            document.querySelector('.country-name').textContent = data.name;
+            document.querySelector('.country-capital').textContent = '📍 ' + (data.capital || 'N/A');
+
+            const infoValues = document.querySelectorAll('.info-value');
+            infoValues[0].textContent = '🌍 ' + data.region;
+            infoValues[1].textContent = '👥 ' + formatNumber(data.population);
+            infoValues[2].textContent = '💰 ' + data.currency_code;
+
+            const currencySymbol = getCurrencySymbol(data.currency_code);
+            infoValues[3].textContent = `$1 = ${currencySymbol}${parseFloat(data.exchange_rate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            document.querySelector('.gdp-value').textContent = '$' + formatNumber(data.estimated_gdp);
+            document.querySelector('.badge').textContent = 'ID: ' + data.id;
+
+            const date = new Date(data.last_refreshed_at);
+            document.querySelector('.timestamp').textContent = '⏱️ Updated: ' + date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        // Fetch country data from API
+        showLoading();
+        fetch(`${apiUrl}/countries/${encodeURIComponent(countryName)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status === 404 ? 'Country not found' : 'Failed to fetch data');
+                }
+                return response.json();
+            })
+            .then(data => populateWidget(data))
+            .catch(error => {
+                console.error('Error:', error);
+                showError(error.message);
+            });
+
+        // Usage examples:
+        // Open with different countries:
+        // country-widget.html?country=Ghana
+        // country-widget.html?country=United%20States%20of%20America
+        // country-widget.html?country=Nigeria&api=https://your-api.com
+    </script>
+</body>
+
+</html>
